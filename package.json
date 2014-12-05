@@ -1,7 +1,7 @@
 {
   "name": "woodpecker",
   "description": "A lightweight dependency injection framework",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "dependencies": {},
   "scripts": {
     "lint": "jshint .",
@@ -26,5 +26,6 @@
   "repository": {
     "type": "git",
     "url": "git@github.com:FuriKuri/woodpecker.git"
-  }
+  },
+  "main": "./lib/woodpecker"
 }
