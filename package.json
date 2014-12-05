@@ -1,0 +1,29 @@
+{
+  "name": "woodpecker",
+  "description": "A lightweight dependency injection framework",
+  "version": "0.0.1",
+  "dependencies": {},
+  "scripts": {
+    "lint": "jshint .",
+    "checkStyle": "jscs .",
+    "pretest": "npm run-script lint && npm run-script checkStyle",
+    "test": "istanbul cover ./node_modules/.bin/_mocha test",
+    "posttest": "istanbul check-coverage && rm -rf coverage",
+    "prepublish": "npm test && npm prune"
+  },
+  "publishConfig": {
+    "registry": "http://registry.npmjs.org"
+  },
+  "author": "Theo Pack <tf.pack@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "mocha": "^2.0.1",
+    "istanbul": "^0.3.4",
+    "jshint": "^2.5.10",
+    "jscs": "^1.8.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:furikuri/woodpecker.git"
+  }
+}
