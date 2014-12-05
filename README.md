@@ -2,7 +2,7 @@
 
 A lightweight dependency injection framework
 
-[![build status](https://secure.travis-ci.org/furikuri/woodpecker.png)](http://travis-ci.org/furikuri/woodpecker)
+[![build status](https://secure.travis-ci.org/FuriKuri/woodpecker.png)](http://travis-ci.org/FuriKuri/woodpecker)
 [![Code Climate](https://codeclimate.com/github/FuriKuri/woodpecker/badges/gpa.svg)](https://codeclimate.com/github/FuriKuri/woodpecker)
 [![Test Coverage](https://codeclimate.com/github/FuriKuri/woodpecker/badges/coverage.svg)](https://codeclimate.com/github/FuriKuri/woodpecker)
 ## Installation
