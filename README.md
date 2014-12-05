@@ -14,4 +14,4 @@ npm install woodpecker --save
 ## Usage
 
 ## Credits
-[Theo Pack](https://github.com/furikuri/)
+[Theo Pack](https://github.com/FuriKuri/)
