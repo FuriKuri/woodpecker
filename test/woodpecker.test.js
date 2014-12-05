@@ -39,4 +39,8 @@ describe('woodpecker', function () {
     var serviceFromWoodpecker = woodpecker.service('myService');
     assert.notStrictEqual(woodpecker.service('myService'), serviceFromWoodpecker);
   });
+
+  it('should return null if no service was registered', function() {
+    assert.equal(woodpecker.service('myService'), null);
+  });
 });
