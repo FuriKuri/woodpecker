@@ -5,7 +5,6 @@
   ]
 , "requireLineFeedAtFileEnd": true
 , "disallowMultipleLineBreaks": true
-, "requireMultipleVarDecl": true
 , "disallowEmptyBlocks": true
 , "disallowSpaceAfterObjectKeys": true
 , "disallowCommaBeforeLineBreak": true

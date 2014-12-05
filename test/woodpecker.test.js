@@ -1,5 +1,5 @@
-var woodpecker = require('../lib/woodpecker')
-  , assert = require('assert');
+var woodpecker = require('../lib/woodpecker');
+var assert = require('assert');
 
 describe('woodpecker', function () {
   it('should return a registered service', function () {
