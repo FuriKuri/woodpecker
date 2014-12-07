@@ -35,4 +35,15 @@ describe('factory', function () {
     var service = factory.service('prototypeService');
     assert.notEqual(factory.service('prototypeService'), service);
   });
+
+  it('resolve dependencies to other services', function() {
+    var service = factory.service('service');
+
+    registry.save('needOneService', function(service) {
+      this.resolvedService = service;
+    });
+
+    var serviceWithOneDep = factory.service('needOneService');
+    assert.equal(serviceWithOneDep.resolvedService, service);
+  });
 });

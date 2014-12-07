@@ -32,4 +32,14 @@ describe('registry', function () {
   it('should return null if no service was registered', function() {
     assert.equal(registry.load('service'), null);
   });
+
+  it('should contains the dependencies', function() {
+    registry.save('serviceWithDeps', function(s1, s2) {
+      return {
+        name: s1.name + s2.name
+      }
+    });
+
+    assert.deepEqual(registry.load('serviceWithDeps').dependencies, [ 's1', 's2' ]);
+  });
 });
