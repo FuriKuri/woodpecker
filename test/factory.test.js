@@ -12,6 +12,8 @@ describe('factory', function () {
       }
     };
     registry.save('service', myService, true);
+
+    registry.save('prototypeService', myService, false);
   });
 
   afterEach(function(done) {
@@ -29,4 +31,8 @@ describe('factory', function () {
     assert.equal(factory.service('service'), service);
   });
 
+  it('return a new object if it is a prototype service', function() {
+    var service = factory.service('prototypeService');
+    assert.notEqual(factory.service('prototypeService'), service);
+  });
 });
