@@ -7,7 +7,6 @@
 , "disallowMultipleLineBreaks": true
 , "disallowEmptyBlocks": true
 , "disallowSpaceAfterObjectKeys": true
-, "disallowCommaBeforeLineBreak": true
 , "disallowTrailingWhitespace": true
 , "requireCapitalizedConstructors": true
 , "requireSpacesInsideObjectBrackets": "all"
