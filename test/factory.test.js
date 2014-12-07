@@ -46,4 +46,15 @@ describe('factory', function () {
     var serviceWithOneDep = factory.service('needOneService');
     assert.equal(serviceWithOneDep.resolvedService, service);
   });
+
+  it('should return null if no service was registered', function() {
+    assert.equal(factory.service('unknown'), null);
+  });
+
+  it('should clean singleton cache if clean is called', function() {
+    assert.notEqual(factory.service('service'), null);
+    factory.clean();
+    registry.clean();
+    assert.equal(factory.service('service'), null);
+  });
 });
