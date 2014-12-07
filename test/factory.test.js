@@ -20,8 +20,13 @@ describe('factory', function () {
   });
 
   it('should create a service object', function() {
-    var service = factory.service('service', true);
+    var service = factory.service('service');
     assert.equal(service.name, 'myService');
+  });
+
+  it('return the same object if a singleton object was already requested', function() {
+    var service = factory.service('service');
+    assert.equal(factory.service('service'), service);
   });
 
 });
