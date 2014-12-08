@@ -1,7 +1,5 @@
 var woodpecker = require('woodpecker');
 
-console.log(woodpecker);
-
 woodpecker.service('logger', function() {
   this.log = function(msg) {
     console.log(msg);
