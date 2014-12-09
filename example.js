@@ -1,12 +1,12 @@
 var woodpecker = require('woodpecker');
 
-woodpecker.service('logger', function() {
+function Logger() {
   this.log = function(msg) {
     console.log(msg);
   }
-});
+}
 
-woodpecker.service('userDAO', function() {
+function UserDAO() {
   this.getUser = function(id) {
     return {
       id: id,
@@ -14,12 +14,17 @@ woodpecker.service('userDAO', function() {
       age: 28
     }
   }
-});
+}
 
-woodpecker.service('userService', function(logger, userDAO) {
+function UserService(logger, userDAO) {
   this.print = function() {
     logger.log(userDAO.getUser().name);
   }
-});
+}
 
-woodpecker.service('userService').print();
+woodpecker.service('logger', Logger);
+woodpecker.service('userDAO', UserDAO);
+woodpecker.service('userService', UserService);
+
+var userService = woodpecker.service('userService');
+userService.print();
