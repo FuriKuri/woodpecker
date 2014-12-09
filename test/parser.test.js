@@ -22,4 +22,12 @@ describe('parser', function () {
     var parameterNames = parser.parameterNames(function(p1, p2, p3, $p4, $$p5) { return [ p1, p2, p3, $p4, $$p5 ]; });
     assert.deepEqual(parameterNames, [ 'p1', 'p2', 'p3', '$p4', '$$p5' ]);
   });
+
+  it('should return parameters for named functions', function() {
+    var parameters = parser.parameterNames(function Person(name, age) {
+      this.name = name;
+      this.age = age;
+    });
+    assert.deepEqual(parameters, [ 'name', 'age' ]);
+  });
 });
