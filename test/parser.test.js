@@ -30,4 +30,13 @@ describe('parser', function () {
     });
     assert.deepEqual(parameters, [ 'name', 'age' ]);
   });
+
+  it('should return the name of the named function', function() {
+    var name = parser.functionName(function Service() {});
+    assert.equal(name, 'Service');
+  });
+
+  it('should throw an error if no named function was passed', function() {
+    assert.throws(function() {parser.functionName(function() {})}, Error);
+  });
 });

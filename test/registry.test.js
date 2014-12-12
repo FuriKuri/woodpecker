@@ -42,4 +42,10 @@ describe('registry', function () {
 
     assert.deepEqual(registry.load('serviceWithDeps').dependencies, [ 's1', 's2' ]);
   });
+
+  it('should save a function under his name', function() {
+    function NamedService() {}
+    registry.save(null, NamedService, true);
+    assert.equal(NamedService, registry.load('namedService').constructor);
+  });
 });
