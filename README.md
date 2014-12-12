@@ -13,7 +13,7 @@ npm install woodpecker --save
 
 ## Usage
 ### Register a service
-```
+```javascript
 var woodpecker = require('woodpecker');
 
 // Simple logger service function
@@ -31,7 +31,7 @@ woodpecker.service('myService', Logger);
 ```
 
 ### Request a service
-```
+```javascript
 // Request service
 var serviceInstance = woodpecker.service('logger');
 
@@ -40,7 +40,7 @@ serviceInstance.log('Hello World');
 ```
 
 ### Using the dependency injection
-```
+```javascript
 // Create some functions
 function Logger() {
   this.log = function(msg) {
