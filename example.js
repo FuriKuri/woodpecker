@@ -23,7 +23,7 @@ function UserService(logger, userDAO) {
 }
 
 woodpecker.service('logger', Logger);
-woodpecker.service('userDAO', UserDAO);
+woodpecker.service(UserDAO);
 woodpecker.service('userService', UserService);
 
 var userService = woodpecker.service('userService');
