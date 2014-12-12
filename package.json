@@ -17,11 +17,12 @@
   "author": "Theo Pack <tf.pack@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "mocha": "^2.0.1",
+    "codeclimate-test-reporter": "^0.0.4",
     "istanbul": "^0.3.4",
-    "jshint": "^2.5.10",
     "jscs": "^1.8.1",
-    "codeclimate-test-reporter": "^0.0.4"
+    "jsdoc": "^3.3.0-alpha11",
+    "jshint": "^2.5.10",
+    "mocha": "^2.0.1"
   },
   "repository": {
     "type": "git",
