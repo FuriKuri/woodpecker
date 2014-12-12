@@ -38,4 +38,12 @@ describe('woodpecker', function () {
   it('should return null if no service was registered', function() {
     assert.equal(woodpecker.service('myService'), null);
   });
+
+  it('should return a function if a named function was registered', function() {
+    function PersonService() {
+      this.name = 'NamedFunction';
+    }
+    woodpecker.service(PersonService);
+    assert.equal(woodpecker.service('personService').name, 'NamedFunction');
+  });
 });
