@@ -22,9 +22,9 @@ function UserService(logger, userDAO) {
   }
 }
 
-woodpecker.service('logger', Logger);
+woodpecker.service(Logger);
 woodpecker.service(UserDAO);
-woodpecker.service('userService', UserService);
+woodpecker.service(UserService);
 
 var userService = woodpecker.service('userService');
 userService.print();
