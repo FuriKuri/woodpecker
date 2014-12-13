@@ -17,35 +17,32 @@ describe('registry', function () {
     done();
   });
 
-  it('should return a singleton service function', function() {
+  it('should return a singleton service', function() {
     registry.save('service', myService, true);
-    assert.equal(registry.load('service').constructor, myService);
-    assert.equal(registry.load('service').singleton, true);
+    assert.equal(registry.load('service'), registry.load('service'));
   });
 
   it('should return a prototype service function', function() {
     registry.save('service', myService, false);
-    assert.equal(registry.load('service').constructor, myService);
-    assert.equal(registry.load('service').singleton, false);
+    assert.notEqual(registry.load('service'), registry.load('service'));
   });
 
   it('should return null if no service was registered', function() {
     assert.equal(registry.load('service'), null);
   });
 
-  it('should contains the dependencies', function() {
-    registry.save('serviceWithDeps', function(s1, s2) {
-      return {
-        name: s1.name + s2.name
-      }
-    });
-
-    assert.deepEqual(registry.load('serviceWithDeps').dependencies, [ 's1', 's2' ]);
-  });
-
   it('should save a function under his name', function() {
     function NamedService() {}
     registry.save(null, NamedService, true);
     assert.equal(NamedService, registry.load('namedService').constructor);
+  });
+
+  it('should return a service with his dependencies', function() {
+    var serviceWithDeps = function(service) {
+      this.dep = service;
+    };
+    registry.save('service', myService, true);
+    registry.save('serviceWithDeps', serviceWithDeps, true);
+    assert.equal(registry.load('serviceWithDeps').dep.name, 'myService');
   });
 });
