@@ -46,4 +46,10 @@ describe('woodpecker', function () {
     woodpecker.service(PersonService);
     assert.equal(woodpecker.service('personService').name, 'NamedFunction');
   });
+
+  it('should return a registered service with a callback function', function () {
+    woodpecker.service('myService', myService).callback(function() {});
+    var serviceFromWoodpecker = woodpecker.service('myService');
+    assert.strictEqual(serviceFromWoodpecker.name, 'myService');
+  });
 });
