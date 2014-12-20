@@ -45,4 +45,18 @@ describe('registry', function () {
     registry.save('serviceWithDeps', serviceWithDeps, true);
     assert.equal(registry.load('serviceWithDeps').dep.name, 'myService');
   });
+
+  it('should call the callback function if a service will be replaced', function () {
+    var serviceWithDeps = function(service) {
+      this.dep = service;
+    };
+    registry.save('service', myService, true);
+    var oldService = registry.load('service');
+    registry.save('serviceWithDeps', serviceWithDeps, true).callback(function (service, name, newInstance) {
+      assert.equal(name, 'service');
+      assert.notEqual(newInstance, oldService);
+    });
+    registry.load('serviceWithDeps');
+    registry.save('service', myService, true);
+  });
 });
