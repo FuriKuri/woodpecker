@@ -59,4 +59,11 @@ describe('registry', function () {
     registry.load('serviceWithDeps');
     registry.save('service', myService, true);
   });
+
+  it('should return a proxy service if name starts and ends with "$"', function() {
+    registry.save('service', myService, true);
+    var proxy = registry.load('$service$');
+    assert.equal(proxy.name, 'myService');
+    assert.equal(proxy.constructor.name, 'ServiceProxy');
+  });
 });
