@@ -27,4 +27,14 @@ describe('ServiceProxy', function () {
     proxy.service = {};
     assert.equal(proxy.name, undefined);
   });
+
+  it('should create delegate values to original service instance', function() {
+    var proxy = new ServiceProxy();
+    var service = {};
+    service.name = 'Old value';
+    proxy.service = service;
+    assert.equal(proxy.name, 'Old value');
+    proxy.name = 'New value';
+    assert.equal(service.name, 'New value');
+  });
 });
