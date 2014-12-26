@@ -32,7 +32,7 @@ describe('notifier', function () {
       }
     };
 
-    notifier(services, 'service', load);
+    notifier.notifyInstance(services, 'service', load);
   });
 
   it('should call nothing if no callback exists', function() {
@@ -55,6 +55,6 @@ describe('notifier', function () {
       callback: null
     };
 
-    notifier(services, 'service', load);
+    notifier.notifyInstance(services, 'service', load);
   });
 });

@@ -66,4 +66,9 @@ describe('registry', function () {
     assert.equal(proxy.name, 'myService');
     assert.equal(proxy.constructor.name, 'ServiceProxy');
   });
+
+  it('should return a new instances of proxy services', function() {
+    registry.save('service', myService, true);
+    assert.notEqual(registry.load('$service$'), registry.load('$service$'));
+  });
 });
