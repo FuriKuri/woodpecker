@@ -57,4 +57,16 @@ describe('notifier', function () {
 
     notifier.notifyInstance(services, 'service', load);
   });
+
+  it('should set on all proxies a new service instance', function() {
+    var counter = 1;
+    var loadFn = function() {
+      return 'service' + counter++;
+    };
+    var proxy1 = {};
+    var proxy2 = {};
+    notifier.notifyProxies([ proxy1, proxy2 ], loadFn);
+    assert.equal(proxy1.service, 'service1');
+    assert.equal(proxy2.service, 'service2');
+  });
 });
