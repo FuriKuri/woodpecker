@@ -71,4 +71,20 @@ describe('registry', function () {
     registry.save('service', myService, true);
     assert.notEqual(registry.load('$service$'), registry.load('$service$'));
   });
+
+  it('should return a new instances of proxy services', function() {
+    registry.save('service', myService, true);
+    assert.notEqual(registry.load('$service$'), registry.load('$service$'));
+  });
+
+  it('should update a proxy', function() {
+    registry.save('service', myService, true);
+    var proxy = registry.load('$service$');
+    registry.save('service', function() {
+      return {
+        name: 'newService'
+      }
+    }, true);
+    assert.equal(proxy.name, 'newService');
+  });
 });
