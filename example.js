@@ -28,3 +28,22 @@ woodpecker.service(UserService);
 
 var userService = woodpecker.service('userService');
 userService.print();
+
+function ServiceWithProxy($logger$) {
+  this.printHello = function() {
+    $logger$.log('Hello');
+  }
+}
+
+woodpecker.service(ServiceWithProxy);
+var serviceWithProxy = woodpecker.service('serviceWithProxy');
+
+serviceWithProxy.printHello();
+
+woodpecker.service(function Logger() {
+  this.log = function(msg) {
+    console.log(msg.toUpperCase());
+  }
+});
+
+serviceWithProxy.printHello();

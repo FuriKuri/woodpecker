@@ -52,4 +52,29 @@ describe('woodpecker', function () {
     var serviceFromWoodpecker = woodpecker.service('myService');
     assert.strictEqual(serviceFromWoodpecker.name, 'myService');
   });
+
+  it('should load a service with proxy', function() {
+    function ServiceWithProxy($logger$) {
+      this.printHello = function() {
+        return $logger$.log('Hello');
+      }
+    }
+    woodpecker.service('logger', function() {
+      this.log = function(msg) {
+        return msg.toLowerCase();
+      }
+    });
+    woodpecker.service(ServiceWithProxy);
+    var serviceWithProxy = woodpecker.service('serviceWithProxy');
+    assert.equal(serviceWithProxy.printHello(), 'hello');
+
+    woodpecker.service('logger', function() {
+      this.log = function(msg) {
+        return msg.toUpperCase();
+      }
+    });
+
+    assert.equal(serviceWithProxy.printHello(), 'HELLO');
+
+  });
 });
