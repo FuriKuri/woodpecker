@@ -55,7 +55,7 @@ describe('woodpecker', function () {
 
   it('should load a service with proxy', function() {
     function ServiceWithProxy($logger$) {
-      this.printHello = function() {
+      this.hello = function() {
         return $logger$.log('Hello');
       }
     }
@@ -66,7 +66,7 @@ describe('woodpecker', function () {
     });
     woodpecker.service(ServiceWithProxy);
     var serviceWithProxy = woodpecker.service('serviceWithProxy');
-    assert.equal(serviceWithProxy.printHello(), 'hello');
+    assert.equal(serviceWithProxy.hello(), 'hello');
 
     woodpecker.service('logger', function() {
       this.log = function(msg) {
@@ -74,7 +74,7 @@ describe('woodpecker', function () {
       }
     });
 
-    assert.equal(serviceWithProxy.printHello(), 'HELLO');
+    assert.equal(serviceWithProxy.hello(), 'HELLO');
 
   });
 });
