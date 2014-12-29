@@ -28,7 +28,7 @@ describe('registry', function () {
   });
 
   it('should return null if no service was registered', function() {
-    assert.equal(registry.load('service'), null);
+    assert.throws(function() {registry.load('service')}, Error);
   });
 
   it('should save a function under his name', function() {

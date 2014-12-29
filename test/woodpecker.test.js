@@ -35,8 +35,8 @@ describe('woodpecker', function () {
     assert.notStrictEqual(woodpecker.service('myService'), serviceFromWoodpecker);
   });
 
-  it('should return null if no service was registered', function() {
-    assert.equal(woodpecker.service('myService'), null);
+  it('should throw an error if no service was registered', function() {
+    assert.throws(function () {woodpecker.service('myService')}, Error);
   });
 
   it('should return a function if a named function was registered', function() {
