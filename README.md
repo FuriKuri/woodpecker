@@ -77,5 +77,36 @@ var userService = woodpecker.service('userService');
 userService.print();
 ```
 
+### Using proxy services
+Proxy service always holds the current registered service. To get an proxy instance surround the service name with '$' (e.g. $logger$ for a service named 'service').
+```javascript
+// Register a service which use a service named looger
+function ServiceWithProxy($logger$) {
+  this.hello = function() {
+    return $logger$.log('Hello');
+  }
+}
+
+// Register a service named logger
+woodpecker.service('logger', function() {
+  this.log = function(msg) {
+    console.log(msg.toLowerCase());
+  }
+});
+
+// Use the service
+var serviceWithProxy = woodpecker.service('serviceWithProxy');
+serviceWithProxy.hello() // prints 'hello' on console
+
+// Register a new service named logger
+woodpecker.service('logger', function() {
+  this.log = function(msg) {
+    console.log(msg.toUpperCase());
+  }
+});
+
+serviceWithProxy.hello() // prints 'HELLO' on console
+
+```
 ## Credits
 [Theo Pack](https://github.com/FuriKuri/)
