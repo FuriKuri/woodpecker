@@ -87,4 +87,13 @@ describe('registry', function () {
     }, true);
     assert.equal(proxy.name, 'newService');
   });
+
+  it('should return null if a service name starts with an underscore and do not exists', function () {
+    assert.equal(registry.load('_service'), null);
+  });
+
+  it('should return a service if name starts with an underscore and the service was registered', function() {
+    registry.save('service', myService, true);
+    assert.notEqual(registry.load('_service'), null);
+  });
 });
