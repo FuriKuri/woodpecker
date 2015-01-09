@@ -108,5 +108,24 @@ woodpecker.service('logger', function() {
 serviceWithProxy.hello() // prints 'HELLO' on console
 
 ```
+
+### Using nullable services
+If a service is requested by the name with a underscore, then no error will be thrown if the service is not known. Instead null will be returned.
+```javascript
+function UsingLogger(_logger) {
+  this.logHello = function() {
+    if (_logger === null) {
+      console.log('Hello');
+    } else {
+      _logger.log('Hello');
+    }
+  }
+}
+
+woodpecker.service(UsingLogger);
+var usingLogger = woodpecker.service('usingLogger');
+usingLogger.log();  // console.log('Hello') will be used
+```
+
 ## Credits
 [Theo Pack](https://github.com/FuriKuri/)
