@@ -2,7 +2,7 @@
 
 A lightweight dependency injection framework
 
-[![wercker status](https://app.wercker.com/status/02450cc45afcd1568fa0327835370d96/m "wercker status")](https://app.wercker.com/project/bykey/02450cc45afcd1568fa0327835370d96)
+[![wercker status](https://app.wercker.com/status/02450cc45afcd1568fa0327835370d96/s "wercker status")](https://app.wercker.com/project/bykey/02450cc45afcd1568fa0327835370d96)
 [![Code Climate](https://codeclimate.com/github/FuriKuri/woodpecker/badges/gpa.svg)](https://codeclimate.com/github/FuriKuri/woodpecker)
 [![Test Coverage](https://codeclimate.com/github/FuriKuri/woodpecker/badges/coverage.svg)](https://codeclimate.com/github/FuriKuri/woodpecker)
 ## Installation
